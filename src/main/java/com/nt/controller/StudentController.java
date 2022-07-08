@@ -1,6 +1,7 @@
 package com.nt.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,5 +25,9 @@ public class StudentController {
 		Student stt = studentser.saveStudent(st);
 		return stt;
 	}
-
+	@GetMapping("/get/{id}")
+public Student getStudentById(@PathVariable ("id")int id) {
+	Student sts = studentser.getStudentById(id);
+	return sts;
+}
 }
